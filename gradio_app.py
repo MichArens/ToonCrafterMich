@@ -1,5 +1,6 @@
 import os, argparse
 import sys
+import time
 import gradio as gr
 from scripts.gradio.i2v_test_application import Image2Video
 sys.path.insert(1, os.path.join(sys.path[0], 'lvdm'))
@@ -79,4 +80,6 @@ if __name__ == "__main__":
     dynamicrafter_iface = dynamicrafter_demo(result_dir)
     dynamicrafter_iface.queue(max_size=12)
     dynamicrafter_iface.launch(max_threads=1)
+    while True:
+        time.sleep(1)
     # dynamicrafter_iface.launch(server_name='0.0.0.0', server_port=80, max_threads=1)
